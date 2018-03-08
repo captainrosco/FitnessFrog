@@ -3,28 +3,16 @@ using Treehouse.FitnessFrog.Models;
 
 namespace Treehouse.FitnessFrog.Data
 {
-    /// <summary>
-    /// Provides an in-memory data store.
-    /// 
-    /// Note: The code in this class is not to be considered a "best practice" 
-    /// example of how to do data persistence, but rather as workaround for
-    /// not having a database to persist data to.
-    /// </summary>
+
     public static class Data
     {
-        /// <summary>
-        /// The collection of activities.
-        /// </summary>
+    
         public static List<Activity> Activities { get; set; }
 
-        /// <summary>
-        /// The collection of entries.
-        /// </summary>
+      
         public static List<Entry> Entries { get; set; }
 
-        /// <summary>
-        /// Static constructor used to initialize the data.
-        /// </summary>
+  
         static Data()
         {
             InitData();
@@ -32,8 +20,7 @@ namespace Treehouse.FitnessFrog.Data
 
         private static void InitData()
         {
-            // Create the collection of activities first
-            // so we can reference them when creating the entries collection.
+            
             var activities = new List<Activity>()
             {
                 new Activity(Activity.ActivityType.Basketball),
