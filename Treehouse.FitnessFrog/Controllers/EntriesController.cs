@@ -65,8 +65,6 @@ namespace Treehouse.FitnessFrog.Controllers
             return View(entry);
         }
 
-
-
         public ActionResult Edit(int? id)
         {
             if(id == null) {
@@ -105,7 +103,21 @@ namespace Treehouse.FitnessFrog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            return View();
+            Entry entry = _entriesRepository.GetEntry((int)id);
+            
+            if (entry == null) {
+                return HttpNotFound();
+            }
+
+            return View(entry);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id) {
+            _entriesRepository.DeleteEntry(id);
+            
+            //redirect
+            return RedirectToAction("Index");
         }
 
         private void ValidateEntry(Entry entry) {
