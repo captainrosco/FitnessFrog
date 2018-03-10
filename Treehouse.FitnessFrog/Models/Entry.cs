@@ -41,6 +41,8 @@ namespace Treehouse.FitnessFrog.Models
         public double Duration { get; set; }
         public IntensityLevel Intensity { get; set; }
         public bool Exclude { get; set; }
+        [Required]
+        [MaxLength(200, ErrorMessage = "Notes cannot be longer than 200 characters")]
         public string Notes { get; set; }
     }
 }
